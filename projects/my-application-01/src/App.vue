@@ -16,6 +16,9 @@ export default {
   },
   components: {
     HelloWorld
+  },
+  mounted(){
+      console.log(this.$actions.getAction())
   }
 }
 </script>

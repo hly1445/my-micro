@@ -2,7 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import { registerApps } from "../micro";
-
+import actions from '../micro/store'
 Vue.config.productionTip = false;
 
 function portal() {
@@ -24,5 +24,8 @@ const miroApps = [
   },
 ];
 
+actions.setAction({
+    name:"hly"
+})
 
 registerApps(miroApps);

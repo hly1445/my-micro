@@ -5,20 +5,21 @@ import App from "./App.vue";
 import VueRouter from "vue-router";
 import routes from "./router";
 
-
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 Vue.config.productionTip = false;
 
 let instance = null;
 let router = null;
 
-export async function mount() {
+export async function mount(actions) {
   router = new VueRouter({
     mode: "history",
     base: "/myApp",
     routes,
   });
+
+  Vue.prototype.$actions = actions;
 
   instance = new Vue({
     router,

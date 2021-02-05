@@ -1,4 +1,5 @@
 import importHTML from "import-html-entry";
+import actions from "./store";
 
 let microApps = [];
 
@@ -10,7 +11,6 @@ window.history.pushState = function() {
   originalPushState.apply(this, arguments);
   reroute();
 };
-
 
 window.addEventListener("popstate", () => {
   reroute();
@@ -43,9 +43,8 @@ async function reroute() {
 
   if (prevApp && prevApp.name === "/" + path) {
     await prevApp.unmount();
-    await nowApp.mount();
+    await nowApp.mount(actions);
   } else {
-    await nowApp.mount();
+    await nowApp.mount(actions);
   }
-  await nowApp.mount();
 }

@@ -12,12 +12,14 @@ Vue.config.productionTip = false;
 let instance = null;
 let router = null;
 
-export async function mount() {
+export async function mount(actions) {
   router = new VueRouter({
     mode: "history",
     base: "/subApp",
     routes,
   });
+
+  Vue.prototype.$actions=actions
 
   instance = new Vue({
     router,
