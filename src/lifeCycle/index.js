@@ -1,4 +1,5 @@
 import { loadHTML } from "../lodaer";
+import { getMicroAppStateActions } from "../store";
 let lifeCycle = {};
 
 export const AppStatus = {

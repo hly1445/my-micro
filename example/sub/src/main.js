@@ -1,21 +1,26 @@
 __webpack_public_path__ = "http://localhost:8081/";
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from "vue";
+import App from "./App.vue";
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
-let app
+let app;
 
-export const bootstrap = () => {
+export const bootstrap = (props) => {
+  props.onGlobalStateChange((n,o)=>{
+    console.log("子应用")
+    console.log(n,o)
+  })
+  props.setGlobalState({user:"aaaa"})
   app = new Vue({
     render: (h) => h(App),
-  })
-}
+  });
+};
 
 export const mount = () => {
-  app.$mount('#micro-container')
-}
+  app.$mount("#micro-container");
+};
 
 export const unmount = () => {
-  app.$destroy()
-}
+  app.$destroy();
+};

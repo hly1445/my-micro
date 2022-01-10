@@ -15,7 +15,6 @@ export default {
   },
   mounted(){
     window.name='123'
-    console.log(window.name)
   }
 }
 </script>

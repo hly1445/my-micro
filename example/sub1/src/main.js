@@ -6,7 +6,12 @@ Vue.config.productionTip = false
 
 let app
 
-export const bootstrap = () => {
+export const bootstrap = (props) => {
+  props.onGlobalStateChange((n,o)=>{
+    console.log("子应用")
+    console.log(n,o)
+  })
+  props.setGlobalState({user:"ccc"})
   app = new Vue({
     render: (h) => h(App),
   })
